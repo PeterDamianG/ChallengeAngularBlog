@@ -15,3 +15,15 @@
   top: 0;
   z-index: 1;
 }
+
+.animate-title {
+  animation: opacityTitle 2s linear;
+}
+@keyframes opacityTitle {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
