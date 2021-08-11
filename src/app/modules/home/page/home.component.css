@@ -1,0 +1,5 @@
+.cards-home mat-card {
+  text-align: center;
+  cursor: pointer;
+  width: 35vw;
+}

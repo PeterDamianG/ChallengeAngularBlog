@@ -1,6 +1,30 @@
-<mat-grid-list cols="2" rowHeight="2:1" gutterSize="2em">
-  <mat-grid-tile>Usuarios</mat-grid-tile>
-  <mat-grid-tile>Posteos</mat-grid-tile>
-  <mat-grid-tile>Álbumes</mat-grid-tile>
-  <mat-grid-tile>TO DO's</mat-grid-tile>
+<mat-grid-list cols="2" rowHeight="2:1" class="cards-home">
+  <mat-grid-tile>
+    <mat-card routerLink="/users" title="Go to Users Section">
+      <mat-card-title>Users</mat-card-title>
+      <mat-card-subtitle>Section of Users</mat-card-subtitle>
+      <mat-card-content>Here we see all users in this app.</mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card routerLink="/posts" title="Go to Posts Section">
+      <mat-card-title>Posts</mat-card-title>
+      <mat-card-subtitle>Section of Posts</mat-card-subtitle>
+      <mat-card-content>Here we see all posts in this app.</mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card routerLink="/albums" title="Go to Albums Section">
+      <mat-card-title>Albums</mat-card-title>
+      <mat-card-subtitle>Section of Albums</mat-card-subtitle>
+      <mat-card-content>Here we see all albums in this app.</mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card routerLink="/todos" title="Go to To Do's Section">
+      <mat-card-title>To Do's</mat-card-title>
+      <mat-card-subtitle>Section of To Do's</mat-card-subtitle>
+      <mat-card-content>Here we see all to do's in this app.</mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
 </mat-grid-list>
