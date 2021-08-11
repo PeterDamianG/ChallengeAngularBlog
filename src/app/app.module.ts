@@ -11,13 +11,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { FooterComponent } from './core/layout/footer/footer.component';
-import { TableBaseComponent } from './shared/components/table-base/table-base.component';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
-  declarations: [AppComponent, AppbarComponent, FooterComponent, TableBaseComponent],
+  declarations: [AppComponent, AppbarComponent, FooterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -28,9 +24,6 @@ import { MatSortModule } from '@angular/material/sort';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
