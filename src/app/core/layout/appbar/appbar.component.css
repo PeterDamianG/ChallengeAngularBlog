@@ -17,6 +17,7 @@
 }
 
 .animate-title {
+  cursor: pointer;
   animation: opacityTitle 2s linear;
 }
 @keyframes opacityTitle {
