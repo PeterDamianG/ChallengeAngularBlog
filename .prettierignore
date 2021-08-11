@@ -1,0 +1,9 @@
+/node_modules
+BUGS.md
+CHANGELOGS.md
+.env
+jsconfig.json
+LICENSE
+package-lock.json
+package.json
+README.md
