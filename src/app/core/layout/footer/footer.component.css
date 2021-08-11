@@ -1,6 +1,6 @@
 .footer {
-  position: relative;
-  height: 17.5%;
+  position: absolute;
+  bottom: 0;
 }
 .footer small {
   width: 100%;
