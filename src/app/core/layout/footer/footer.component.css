@@ -1,0 +1,8 @@
+.footer {
+  position: relative;
+  height: 17.5%;
+}
+.footer small {
+  width: 100%;
+  text-align: center;
+}

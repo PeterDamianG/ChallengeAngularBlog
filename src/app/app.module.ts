@@ -10,9 +10,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { FooterComponent } from './core/layout/footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, AppbarComponent],
+  declarations: [AppComponent, AppbarComponent, FooterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
