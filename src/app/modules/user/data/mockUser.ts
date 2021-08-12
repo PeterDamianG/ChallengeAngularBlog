@@ -1,6 +1,6 @@
 import { User } from './user';
 
-export const mockUser: User[] = [
+export const MOCKUSER: User[] = [
   {
     id: 1,
     name: 'Leanne Graham',
