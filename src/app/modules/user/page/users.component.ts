@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from '../data/user.model';
+import { UserList } from '../data/userList.model';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./users.component.css'],
 })
 export class UsersComponent {
-  allUsers: User[] = this.userService.getMockAllUsers();
+  allUsers: UserList[] = this.userService.getUsersList();
   columns: string[] = ['id', 'name'];
 
   constructor(private userService: UserService) {}
