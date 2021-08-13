@@ -1,8 +1,7 @@
 .footer {
-  margin-top: 2vh;
   position: fixed;
   bottom: 0;
-  height: 5vh;
+  height: 4vh;
 }
 .footer small {
   width: 100%;
