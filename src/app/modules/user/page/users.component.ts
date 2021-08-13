@@ -8,7 +8,8 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./users.component.css'],
 })
 export class UsersComponent {
-  allUser: User[] = this.userService.getMockAllUsers();
+  allUsers: User[] = this.userService.getMockAllUsers();
+  columns: string[] = ['id', 'name'];
 
   constructor(private userService: UserService) {}
 }
