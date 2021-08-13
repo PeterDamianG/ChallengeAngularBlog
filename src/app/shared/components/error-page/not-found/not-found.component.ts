@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-not-found',
@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./not-found.component.css'],
 })
 export class NotFoundComponent {
-  title: string = '404 We are searching for your page...';
-  content: string = '... But we can not find it.';
+  @Input() titlePage: string = '404 We are searching for your page...';
+  @Input() content: string = '... But we can not find it.';
 }

@@ -1,1 +1,14 @@
-<h1>This Component Work! The URL is {{ id }}</h1>
+<section *ngIf="user; else notFound">
+  <h1>This Component Work! The URL is {{ id }}</h1>
+</section>
+
+<ng-template #notFound>
+  <app-not-found
+    titlePage="Error Page Not Found"
+    content="Sorry ID: {{ id }}. Not Found"
+  >
+    <button mat-raised-button color="primary" (click)="goBack()">
+      Go Back!
+    </button>
+  </app-not-found>
+</ng-template>

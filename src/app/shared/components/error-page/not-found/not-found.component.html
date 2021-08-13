@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title fxFlex>{{ title }}</mat-card-title>
+    <mat-card-title fxFlex>{{ titlePage }}</mat-card-title>
   </mat-card-header>
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
   <mat-card-content>
@@ -9,6 +9,6 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <ng-component></ng-component>
+    <ng-content></ng-content>
   </mat-card-actions>
 </mat-card>
