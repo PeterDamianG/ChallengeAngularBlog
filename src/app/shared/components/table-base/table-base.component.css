@@ -9,3 +9,7 @@ table {
 .mat-row:hover .mat-cell {
   border-color: currentColor;
 }
+.mat-form-field {
+  font-size: 1.25em;
+  width: 100%;
+}
