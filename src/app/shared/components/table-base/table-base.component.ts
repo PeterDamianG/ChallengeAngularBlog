@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { AfterViewInit, ViewChild } from '@angular/core';
+import { ViewChild, Component, Input, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 
