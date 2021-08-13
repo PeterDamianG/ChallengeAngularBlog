@@ -1,31 +1,18 @@
 <section class="mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource" class="full-width-table">
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <!-- Column's Generator -->
     <ng-container
-      *ngFor="let item of displayedColumns"
-      matColumnDef="{{ item }}"
+      matColumnDef="{{ column }}"
+      *ngFor="let column of displayedColumns"
     >
-      <th mat-header-cell *matHeaderCellDef>{{ item }}</th>
-      <td mat-cell *matCellDef="let element">{{ element[item] }}</td>
+      <mat-header-cell *matHeaderCellDef>{{ column }}</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element[column] }} </mat-cell>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr
-      routerLink="/item"
-      mat-row
-      *matRowDef="let row; columns: displayedColumns"
-    ></tr>
-  </table>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
 </section>
 <br />
 <br />
 <hr />
-
-<!--    
-  <mat-text-column
-      *ngFor="let item of displayedColumns"
-      name="{{ item }}"
-    ></mat-text-column>
-
-    routerLink="/home"
--->
