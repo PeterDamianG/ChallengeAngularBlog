@@ -1,0 +1,23 @@
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5vh;
+}
+.mat-card {
+  width: 85%;
+  text-align: center;
+}
+.text-bold {
+  font-weight: bold;
+}
+.company {
+  display: flex;
+  flex-direction: column;
+}
+.button-sections {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}

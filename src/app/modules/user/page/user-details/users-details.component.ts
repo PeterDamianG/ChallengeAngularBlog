@@ -9,7 +9,7 @@ import { UserService } from '../../services/user.service';
 })
 export class UsersDetailsComponent {
   id: number = Number(this.route.snapshot.params['id']);
-  user = this.userService.getUserDetail(this.id);
+  user = this.userService.getUserDetail(this.id - 1);
 
   constructor(
     private route: ActivatedRoute,

@@ -1,5 +1,47 @@
 <section *ngIf="user; else notFound">
-  <h1>This Component Work! The URL is {{ id }}</h1>
+  <mat-card>
+    <mat-card-title>Details about user ID: {{ user.id }}</mat-card-title>
+    <mat-grid-list cols="2" rowHeight="14vh">
+      <mat-grid-tile class="text-bold">Name:</mat-grid-tile>
+      <mat-grid-tile>{{ user.name }}</mat-grid-tile>
+      <mat-grid-tile class="text-bold">Website:</mat-grid-tile>
+      <mat-grid-tile>{{ user.website }}</mat-grid-tile>
+      <mat-grid-tile class="text-bold">Company:</mat-grid-tile>
+      <mat-grid-tile>
+        <article class="company">
+          <p><b>Name:</b> {{ user.company.name }}</p>
+          <p><b>CatchPhrase:</b> {{ user.company.catchPhrase }}</p>
+          <p><b>BS:</b> {{ user.company.bs }}</p>
+        </article>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <section class="button-sections">
+      <button
+        title="Go to Post of User ID: {{ id }}"
+        mat-raised-button
+        color="primary"
+        routerLink="'posts/{{ id }}"
+      >
+        Posts
+      </button>
+      <button
+        title="Go to Albums of User ID: {{ id }}"
+        mat-raised-button
+        color="primary"
+        routerLink="'albums/{{ id }}"
+      >
+        Albums
+      </button>
+      <button
+        title="Go to TO DO's of User ID: {{ id }}"
+        mat-raised-button
+        color="primary"
+        routerLink="'todos/{{ id }}"
+      >
+        To Do's
+      </button>
+    </section>
+  </mat-card>
 </section>
 
 <ng-template #notFound>
