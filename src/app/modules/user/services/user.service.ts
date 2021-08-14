@@ -45,11 +45,13 @@ export class UserService {
   private readonly USERSURL = 'https://jsonplaceholder.typicode.com/users';
 
   // Method for user.components.ts in HTTP
-  getAllUserHTTP(): Observable<User[]> {
-    return this.http.get<User[]>(this.USERSURL).pipe(
+  getAllUserHTTP(): Observable<UserList[]> {
+    const result = this.http.get<UserList[]>(this.USERSURL).pipe(
       tap((_) => console.log('fetched users')),
       catchError(this.handleError<User[]>('getAllUserHTTP', [])),
+      map((data) => data.map((d) => ({ id: d.id, name: d.name }))),
     );
+    return result;
   }
 
   // Method for user-details.components.ts in HTTP
