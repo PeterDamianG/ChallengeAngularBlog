@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
@@ -7,8 +7,9 @@ import { UserService } from '../../services/user.service';
   templateUrl: './users-details.component.html',
   styleUrls: ['./users-details.component.css'],
 })
-export class UsersDetailsComponent implements OnInit {
-  id: number = Number(this.route.snapshot.params['id']);
+export class UsersDetailsComponent implements OnInit, DoCheck {
+  id: string = this.route.snapshot.params['id'];
+  isLoading: boolean = true;
   user: any | null = null;
 
   constructor(
@@ -23,10 +24,16 @@ export class UsersDetailsComponent implements OnInit {
    */
   getUser(): void {
     this.userService
-      .getUserByID(this.id)
+      .getUserByID(Number(this.id))
       .subscribe((user) => (this.user = user));
   }
+
   ngOnInit(): void {
     this.getUser();
+  }
+
+  ngDoCheck(): void {
+    if (this.user) this.isLoading = false;
+    if (this.user === undefined) this.isLoading = false;
   }
 }

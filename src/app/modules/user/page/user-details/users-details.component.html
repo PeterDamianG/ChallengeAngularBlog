@@ -1,3 +1,4 @@
+<ng-template *ngIf="!isLoading; else loading"></ng-template>
 <section *ngIf="user; else notFound">
   <mat-card>
     <mat-card-title>Details about user ID: {{ user.id }}</mat-card-title>
@@ -53,4 +54,11 @@
       Go Back!
     </button>
   </app-not-found>
+</ng-template>
+
+<ng-template #loading>
+  <app-not-found
+    titlePage="Loading . . ."
+    content="We are looking for ID: {{ id }}"
+  ></app-not-found>
 </ng-template>
