@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 import { User } from '../data/user.model';
 import { UserList } from '../data/userList.model';
 import { UserDetails } from '../data/userDetail.model';
@@ -20,12 +21,12 @@ export class UserService {
       name,
     }),
   );
-  // Method for user.components.ts
+  // Method for user.components.ts in MOCK
   getUsersListMOCK(): UserList[] {
     return this.usersListMOCK;
   }
-  // Method for user-details.components.ts
-  getUserDetailMOCK(index: number) {
+  // Method for user-details.components.ts in MOCK
+  getUserDetailMOCK(index: number): UserDetails | null {
     const user: User = this.allUsersMOCK[index];
     if (user)
       return {
@@ -40,9 +41,39 @@ export class UserService {
    ** Service by HTTP
    */
   constructor(private http: HttpClient) {}
+
   private readonly USERSURL = 'https://jsonplaceholder.typicode.com/users';
 
+  // Method for user.components.ts in HTTP
   getAllUserHTTP(): Observable<User[]> {
-    return this.http.get<User[]>(this.USERSURL);
+    return this.http.get<User[]>(this.USERSURL).pipe(
+      tap((_) => console.log('fetched users')),
+      catchError(this.handleError<User[]>('getAllUserHTTP', [])),
+    );
+  }
+
+  // Method for user-details.components.ts in HTTP
+  getUserByID(id: number): Observable<User> {
+    const url = `${this.USERSURL}/${id}`;
+    return this.http.get<User>(url).pipe(
+      tap((_) => console.log(`fetched user by id=${id}`)),
+      catchError(this.handleError<User>(`getUserByID id=${id}`)),
+    );
+  }
+
+  /**
+   * Handle Http operation that failed.
+   * Let the app continue.
+   * @param operation - name of the operation that failed
+   * @param result - optional value to return as the observable result
+   */
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
   }
 }
