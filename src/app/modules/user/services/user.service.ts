@@ -46,12 +46,11 @@ export class UserService {
 
   // Method for user.components.ts in HTTP
   getAllUserHTTP(): Observable<UserList[]> {
-    const result = this.http.get<UserList[]>(this.USERSURL).pipe(
+    return this.http.get<UserList[]>(this.USERSURL).pipe(
       tap((_) => console.log('fetched users')),
       catchError(this.handleError<User[]>('getAllUserHTTP', [])),
       map((data) => data.map((d) => ({ id: d.id, name: d.name }))),
     );
-    return result;
   }
 
   // Method for user-details.components.ts in HTTP
