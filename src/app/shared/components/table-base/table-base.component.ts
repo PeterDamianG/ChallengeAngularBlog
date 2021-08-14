@@ -25,8 +25,4 @@ export class TableBaseComponent implements OnChanges {
       this.dataSource.paginator.firstPage();
     }
   }
-
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
 }
