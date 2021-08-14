@@ -1,7 +1,4 @@
-<section
-  *ngIf="dataSource.length; else dataSourceVoid"
-  class="mat-elevation-z8"
->
+<section class="mat-elevation-z8">
   <mat-form-field appearance="standard">
     <mat-label>Filter</mat-label>
     <input
@@ -42,8 +39,3 @@
 <br />
 <br />
 <hr />
-
-<ng-template #dataSourceVoid>
-  <app-not-found titlePage="Waiting for Data:" content="Table don't have data.">
-  </app-not-found>
-</ng-template>

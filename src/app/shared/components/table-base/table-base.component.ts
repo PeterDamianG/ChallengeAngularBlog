@@ -1,4 +1,4 @@
-import { ViewChild, Component, Input, OnInit } from '@angular/core';
+import { ViewChild, Component, Input, OnChanges } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 
@@ -7,13 +7,14 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['table-base.component.css'],
   templateUrl: 'table-base.component.html',
 })
-export class TableBaseComponent implements OnInit {
+export class TableBaseComponent implements OnChanges {
   @Input() displayedColumns: string[] = [];
   @Input() dataSource: any = [];
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
     this.dataSource = new MatTableDataSource(this.dataSource);
+    this.dataSource.paginator = this.paginator;
   }
 
   applyFilter(event: Event) {
