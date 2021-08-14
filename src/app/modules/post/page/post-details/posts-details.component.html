@@ -1,0 +1,50 @@
+<ng-template *ngIf="!isLoading; else loading"></ng-template>
+<section *ngIf="post; else notFound">
+  <mat-card>
+    <mat-card-title>Details about user ID: {{ post.id }}</mat-card-title>
+    <mat-grid-list cols="2" rowHeight="14vh">
+      <mat-grid-tile class="text-bold">User ID:</mat-grid-tile>
+      <mat-grid-tile>{{ post.userId }}</mat-grid-tile>
+      <mat-grid-tile class="text-bold">Title:</mat-grid-tile>
+      <mat-grid-tile>{{ post.title }}</mat-grid-tile>
+      <mat-grid-tile class="text-bold">Body:</mat-grid-tile>
+      <mat-grid-tile>{{ post.body }}</mat-grid-tile>
+    </mat-grid-list>
+    <section class="button-sections">
+      <button
+        title="Go to details user ID: {{ post.userId }}"
+        mat-raised-button
+        color="primary"
+        routerLink="/users/{{ post.userId }}"
+      >
+        User Details
+      </button>
+      <button
+        title="Go to see all comments of this post."
+        mat-raised-button
+        color="primary"
+        routerLink="/comments/{{ id }}"
+      >
+        Comments
+      </button>
+    </section>
+  </mat-card>
+</section>
+
+<ng-template #notFound>
+  <app-not-found
+    titlePage="Error Page Not Found"
+    content="Sorry ID: {{ id }}. Not Found"
+  >
+    <button mat-raised-button color="primary" routerLink="/posts">
+      Go Back to Posts!
+    </button>
+  </app-not-found>
+</ng-template>
+
+<ng-template #loading>
+  <app-not-found
+    titlePage="Loading . . ."
+    content="We are looking for Post ID: {{ id }}"
+  ></app-not-found>
+</ng-template>
