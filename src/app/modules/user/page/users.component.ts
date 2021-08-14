@@ -7,7 +7,7 @@ import { UserService } from '../services/user.service';
   templateUrl: './users.component.html',
 })
 export class UsersComponent {
-  allUsers: UserList[] = this.userService.getUsersList();
+  allUsers: UserList[] = this.userService.getUsersListMOCK();
   columns: string[] = ['id', 'name'];
 
   constructor(private userService: UserService) {}
