@@ -5,6 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Post } from '../data/post.model';
 import { PostList } from '../data/postList.model';
 import { PostDetails } from '../data/postDetails.model';
+import { Comment } from '../data/comment.model';
 import { MOCKPOST } from '../data/mockPost';
 
 @Injectable({
@@ -56,11 +57,23 @@ export class PostService {
   }
 
   // Method for post-details.components.ts in HTTP
-  getPostByID(id: number): Observable<Post> {
+  getPostByIDHTTP(id: number): Observable<Post> {
     const url = `${this.POSTSURL}/${id}`;
     return this.http.get<Post>(url).pipe(
       tap((_) => console.log(`fetched post by id=${id}`)),
-      catchError(this.handleError<Post>(`getUserByID id=${id}`)),
+      catchError(this.handleError<Post>(`getUserByIDHTTP id=${id}`)),
+    );
+  }
+
+  // Method for post-comments.components.ts in HTTP
+  getPostCommentsHTTP(id: number): Observable<Comment[]> {
+    const url = `${this.POSTSURL}/${id}/comments`;
+    return this.http.get<Comment[]>(url).pipe(
+      tap((_) => console.log(`fetched comment by id=${id}`)),
+      catchError(this.handleError<Comment[]>(`getPostCommentsHTTP id=${id}`)),
+      map((data) =>
+        data.map((d) => ({ name: d.name, email: d.email, body: d.body })),
+      ),
     );
   }
 

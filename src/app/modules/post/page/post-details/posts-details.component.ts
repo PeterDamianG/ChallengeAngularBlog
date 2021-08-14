@@ -24,7 +24,7 @@ export class PostsDetailsComponent implements OnInit, DoCheck {
    */
   getPost(): void {
     this.postService
-      .getPostByID(Number(this.id))
+      .getPostByIDHTTP(Number(this.id))
       .subscribe((post: any) => (this.post = post));
   }
 

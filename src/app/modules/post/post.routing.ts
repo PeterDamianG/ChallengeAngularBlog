@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PostsComponent } from './page/posts.component';
 import { PostsDetailsComponent } from './page/post-details/posts-details.component';
+import { PostsCommentsComponent } from './page/post-comments/posts-comments.component';
 
 export const routes: Routes = [
   {
@@ -11,6 +12,10 @@ export const routes: Routes = [
   {
     path: ':id',
     component: PostsDetailsComponent,
+  },
+  {
+    path: ':id/comments',
+    component: PostsCommentsComponent,
   },
 ];
 
