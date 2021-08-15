@@ -2,4 +2,35 @@
   text-align: center;
   cursor: pointer;
   width: 35vw;
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  border-color: currentColor;
+}
+.anim-opacity {
+  animation: opacityTitle 1s linear;
+}
+@media all and (max-width: 640px) {
+  .mat-grid-list {
+    margin-top: 5vh;
+  }
+  .cards-home mat-card {
+    width: 45vw;
+  }
+  .mat-card-title {
+    font-size: 1.25em;
+  }
+  .mat-card-subtitle {
+    font-size: 1em;
+  }
+  .mat-card-content {
+    font-size: 0.75em;
+  }
+}
+@keyframes opacityTitle {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

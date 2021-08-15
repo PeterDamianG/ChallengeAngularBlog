@@ -1,4 +1,9 @@
-<mat-grid-list cols="2" rowHeight="2:1" class="cards-home">
+<mat-grid-list
+  cols="{{ columns }}"
+  rowHeight="20vw"
+  gutterSize="4em"
+  class="cards-home anim-opacity"
+>
   <mat-grid-tile>
     <mat-card routerLink="/users" title="Go to Users Section">
       <mat-card-title>Users</mat-card-title>
