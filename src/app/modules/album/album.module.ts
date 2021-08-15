@@ -7,9 +7,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { AlbumsComponent } from './page/albums.component';
 import { AlbumsDetailsComponent } from './page/album-details/albums-details.component';
+import { AlbumsGalleryComponent } from './page/album-gallery/albums-gallery.component';
 
 @NgModule({
-  declarations: [AlbumsComponent, AlbumsDetailsComponent],
+  declarations: [
+    AlbumsComponent,
+    AlbumsDetailsComponent,
+    AlbumsGalleryComponent,
+  ],
   imports: [
     AlbumRoutingModule,
     SharedModule,
