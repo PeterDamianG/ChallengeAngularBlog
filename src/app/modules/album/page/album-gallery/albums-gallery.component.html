@@ -2,7 +2,7 @@
 <section *ngIf="allImg; else notFound">
   <mat-grid-list cols="{{ columns }}" rowHeight="2:1">
     <mat-grid-tile *ngFor="let img of allImg">
-      <mat-card class="example-card">
+      <mat-card>
         <img
           mat-card-image
           src="{{ img.thumbnailUrl }}"
@@ -12,13 +12,7 @@
         />
       </mat-card>
       <mat-card-actions>
-        <button
-          title="Click to delete this image."
-          mat-raised-button
-          color="primary"
-        >
-          Delete
-        </button>
+        <app-dialog-delete></app-dialog-delete>
       </mat-card-actions>
     </mat-grid-tile>
   </mat-grid-list>
