@@ -13,3 +13,14 @@ table {
   font-size: 1.25em;
   width: 100%;
 }
+.anim-opacity {
+  animation: opacityTitle 1.5s linear;
+}
+@keyframes opacityTitle {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

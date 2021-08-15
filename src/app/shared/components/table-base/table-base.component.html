@@ -1,4 +1,5 @@
-<section class="mat-elevation-z8">
+<ng-template *ngIf="!isLoading; else loading"></ng-template>
+<section class="mat-elevation-z8 anim-opacity">
   <mat-form-field appearance="standard">
     <mat-label>Filter</mat-label>
     <input
@@ -39,3 +40,10 @@
 <br />
 <br />
 <hr />
+
+<ng-template #loading>
+  <app-not-found
+    titlePage="Loading . . ."
+    content="We are looking for data."
+  ></app-not-found>
+</ng-template>

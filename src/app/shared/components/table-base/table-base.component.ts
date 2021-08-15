@@ -11,10 +11,12 @@ export class TableBaseComponent implements OnChanges {
   @Input() displayedColumns: string[] = [];
   @Input() dataSource: any = [];
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+  isLoading: boolean = true;
 
   ngOnChanges(): void {
     this.dataSource = new MatTableDataSource(this.dataSource);
     this.dataSource.paginator = this.paginator;
+    if (this.dataSource.filteredData.length) this.isLoading = false;
   }
 
   applyFilter(event: Event) {
