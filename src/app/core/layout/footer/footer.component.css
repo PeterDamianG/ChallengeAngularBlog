@@ -7,3 +7,14 @@
   width: 100%;
   text-align: center;
 }
+.anim-opacity {
+  animation: opacityTitle 2s linear;
+}
+@keyframes opacityTitle {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

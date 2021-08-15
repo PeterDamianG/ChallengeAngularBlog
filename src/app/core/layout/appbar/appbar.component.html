@@ -8,7 +8,7 @@
     [opened]="(isHandset$ | async) === false"
   >
     <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
+    <mat-nav-list class="anim-opacity">
       <a mat-list-item routerLink="/home">Home</a>
       <a mat-list-item routerLink="/users">Users</a>
       <a mat-list-item routerLink="/posts">Posts</a>
@@ -27,8 +27,8 @@
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span class="animate-title" routerLink="/home">Blog-Angular</span>
-      <app-theme-switch class="position-left"></app-theme-switch>
+      <span class="title anim-opacity" routerLink="/home">Blog-Angular</span>
+      <app-theme-switch class="position-left anim-opacity"></app-theme-switch>
     </mat-toolbar>
     <!-- Add Content Here -->
     <ng-content></ng-content>
