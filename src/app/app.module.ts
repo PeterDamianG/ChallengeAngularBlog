@@ -11,8 +11,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { SharedModule } from './shared/shared.module';
 import { FooterComponent } from './core/layout/footer/footer.component';
+import { HomeComponent } from './core/page/home/home.component';
 import { NotFoundPageComponent } from './core/page/not-found/not-found-page/not-found-page.component';
 
 @NgModule({
@@ -20,6 +23,7 @@ import { NotFoundPageComponent } from './core/page/not-found/not-found-page/not-
     AppComponent,
     AppbarComponent,
     FooterComponent,
+    HomeComponent,
     NotFoundPageComponent,
   ],
   imports: [
@@ -33,6 +37,8 @@ import { NotFoundPageComponent } from './core/page/not-found/not-found-page/not-
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatCardModule,
+    MatGridListModule,
     SharedModule,
   ],
   providers: [],
