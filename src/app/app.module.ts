@@ -8,6 +8,7 @@ import { AppbarComponent } from './core/layout/appbar/appbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -17,6 +18,7 @@ import { SharedModule } from './shared/shared.module';
 import { FooterComponent } from './core/layout/footer/footer.component';
 import { HomeComponent } from './core/page/home/home.component';
 import { NotFoundPageComponent } from './core/page/not-found/not-found-page/not-found-page.component';
+import { ThemeSwitchComponent } from './core/layout/theme-switch/theme-switch.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { NotFoundPageComponent } from './core/page/not-found/not-found-page/not-
     FooterComponent,
     HomeComponent,
     NotFoundPageComponent,
+    ThemeSwitchComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,7 @@ import { NotFoundPageComponent } from './core/page/not-found/not-found-page/not-
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
+    MatButtonToggleModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,

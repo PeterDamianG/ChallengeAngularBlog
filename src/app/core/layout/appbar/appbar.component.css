@@ -20,6 +20,14 @@
   cursor: pointer;
   animation: opacityTitle 2s linear;
 }
+
+.position-left {
+  animation: opacityTitle 2s linear;
+  position: absolute;
+  right: 2px;
+  top: 2px;
+}
+
 @keyframes opacityTitle {
   0% {
     opacity: 0;
