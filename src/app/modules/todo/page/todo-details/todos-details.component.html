@@ -1,0 +1,50 @@
+<ng-template *ngIf="!isLoading; else loading"></ng-template>
+<section *ngIf="todo; else notFound">
+  <mat-card>
+    <mat-card-title>Details about user ID: {{ todo.id }}</mat-card-title>
+    <mat-grid-list cols="2" rowHeight="14vh">
+      <mat-grid-tile class="text-bold">User ID:</mat-grid-tile>
+      <mat-grid-tile>{{ todo.userId }}</mat-grid-tile>
+      <mat-grid-tile class="text-bold">Title:</mat-grid-tile>
+      <mat-grid-tile>{{ todo.title }}</mat-grid-tile>
+      <mat-grid-tile class="text-bold">Completed:</mat-grid-tile>
+      <mat-grid-tile>{{ todo.completed ? '✔' : 'X' }}</mat-grid-tile>
+    </mat-grid-list>
+    <section class="button-sections">
+      <button
+        title="Go to details user ID: {{ todo.userId }}"
+        mat-raised-button
+        color="primary"
+        routerLink="/users/{{ todo.userId }}"
+      >
+        User Details
+      </button>
+      <button
+        title="Click to change status of completed."
+        mat-raised-button
+        color="primary"
+        (click)="changeCompleted()"
+      >
+        {{ todo.completed ? 'Incompleted' : 'Completed' }}
+      </button>
+    </section>
+  </mat-card>
+</section>
+
+<ng-template #notFound>
+  <app-not-found
+    titlePage="Error Page Not Found"
+    content="Sorry ID: {{ id }}. Not Found"
+  >
+    <button mat-raised-button color="primary" routerLink="/todos">
+      Go Back to to do's!
+    </button>
+  </app-not-found>
+</ng-template>
+
+<ng-template #loading>
+  <app-not-found
+    titlePage="Loading . . ."
+    content="We are looking for to do ID: {{ id }}"
+  ></app-not-found>
+</ng-template>

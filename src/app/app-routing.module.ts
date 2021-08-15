@@ -31,7 +31,7 @@ const routes: Routes = [
   {
     path: 'todos',
     loadChildren: () =>
-      import('./modules/home/home.module').then((m) => m.HomeModule),
+      import('./modules/todo/todo.module').then((m) => m.TodoModule),
   },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404', pathMatch: 'full' },
