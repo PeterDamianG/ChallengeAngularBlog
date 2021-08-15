@@ -1,5 +1,8 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit, DoCheck, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { AlbumService } from '../../services/album.service';
 
 @Component({
@@ -7,16 +10,45 @@ import { AlbumService } from '../../services/album.service';
   templateUrl: './albums-gallery.component.html',
   styleUrls: ['./albums-gallery.component.css'],
 })
-export class AlbumsGalleryComponent implements OnInit, DoCheck {
+export class AlbumsGalleryComponent implements OnInit, DoCheck, OnDestroy {
   id: string = this.route.snapshot.params['id'];
   isLoading: boolean = true;
   allImg: any | null = null;
-  columns: number = 4;
+  columns: string = '4';
+
+  destroyed = new Subject<void>();
+
+  // Create a map to display breakpoint names for demonstration purposes.
+  displayNameMap = new Map([
+    [Breakpoints.XSmall, '1'],
+    [Breakpoints.Small, '2'],
+    [Breakpoints.Medium, '3'],
+    [Breakpoints.Large, '4'],
+    [Breakpoints.XLarge, '5'],
+  ]);
 
   constructor(
     private route: ActivatedRoute,
     private albumService: AlbumService,
-  ) {}
+    breakpointObserver: BreakpointObserver,
+  ) {
+    breakpointObserver
+      .observe([
+        Breakpoints.XSmall,
+        Breakpoints.Small,
+        Breakpoints.Medium,
+        Breakpoints.Large,
+        Breakpoints.XLarge,
+      ])
+      .pipe(takeUntil(this.destroyed))
+      .subscribe((result) => {
+        for (const query of Object.keys(result.breakpoints)) {
+          if (result.breakpoints[query]) {
+            this.columns = this.displayNameMap.get(query) ?? 'Unknown';
+          }
+        }
+      });
+  }
 
   getAlbum(): void {
     this.albumService
@@ -31,5 +63,10 @@ export class AlbumsGalleryComponent implements OnInit, DoCheck {
   ngDoCheck(): void {
     if (this.allImg) this.isLoading = false;
     if (this.allImg === undefined) this.isLoading = false;
+  }
+
+  ngOnDestroy() {
+    this.destroyed.next();
+    this.destroyed.complete();
   }
 }
