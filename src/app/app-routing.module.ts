@@ -26,7 +26,7 @@ const routes: Routes = [
   {
     path: 'albums',
     loadChildren: () =>
-      import('./modules/home/home.module').then((m) => m.HomeModule),
+      import('./modules/album/album.module').then((m) => m.AlbumModule),
   },
   {
     path: 'todos',
