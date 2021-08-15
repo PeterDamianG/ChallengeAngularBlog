@@ -5,6 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Album } from '../data/album.model';
 import { AlbumList } from '../data/albumList.model';
 import { AlbumDetails } from '../data/albumDetails.model';
+import { Photo } from '../data/photo.model';
 import { MOCKALBUM } from '../data/mockAlbum';
 
 @Injectable({
@@ -58,6 +59,18 @@ export class AlbumService {
     return this.http.get<Album>(url).pipe(
       tap((_) => console.log(`fetched album by id=${id}`)),
       catchError(this.handleError<Album>(`getAlbumByIDHTTP id=${id}`)),
+    );
+  }
+
+  // Method for album-gallery.components.ts in HTTP
+  getAllImgAlbumHTTP(id: number): Observable<Photo[]> {
+    const url = `${this.ALBUMSURL}/${id}/photos`;
+    return this.http.get<Photo[]>(url).pipe(
+      tap((_) => console.log(`fetched all img albums by id=${id}`)),
+      catchError(this.handleError<Photo[]>(`getPostCommentsHTTP id=${id}`)),
+      map((data) =>
+        data.map((d) => ({ url: d.url, thumbnailUrl: d.thumbnailUrl })),
+      ),
     );
   }
 

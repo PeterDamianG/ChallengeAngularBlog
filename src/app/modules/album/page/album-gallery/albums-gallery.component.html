@@ -1,1 +1,43 @@
-<h1>Albums-Gallery Component Work!</h1>
+<ng-template *ngIf="!isLoading; else loading"></ng-template>
+<section *ngIf="allImg; else notFound">
+  <mat-grid-list cols="{{ columns }}" rowHeight="2:1">
+    <mat-grid-tile *ngFor="let img of allImg">
+      <mat-card class="example-card">
+        <img
+          mat-card-image
+          src="{{ img.thumbnailUrl }}"
+          alt="Photo of get from https://jsonplaceholder.typicode.com/albums/{{
+            id
+          }}/photos"
+        />
+      </mat-card>
+      <mat-card-actions>
+        <button
+          title="Click to delete this image."
+          mat-raised-button
+          color="primary"
+        >
+          Delete
+        </button>
+      </mat-card-actions>
+    </mat-grid-tile>
+  </mat-grid-list>
+</section>
+
+<ng-template #notFound>
+  <app-not-found
+    titlePage="Error Page Not Found"
+    content="Sorry ID: {{ id }}. Not Found"
+  >
+    <button mat-raised-button color="primary" routerLink="/albums">
+      Go Back to Albums!
+    </button>
+  </app-not-found>
+</ng-template>
+
+<ng-template #loading>
+  <app-not-found
+    titlePage="Loading . . ."
+    content="We are looking for Album ID: {{ id }}"
+  ></app-not-found>
+</ng-template>
