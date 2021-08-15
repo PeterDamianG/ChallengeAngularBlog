@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NotFoundComponent } from './shared/components/error-page/not-found/not-found.component';
+import { NotFoundPageComponent } from './core/page/not-found/not-found-page/not-found-page.component';
 
 const routes: Routes = [
   {
@@ -33,7 +33,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/todo/todo.module').then((m) => m.TodoModule),
   },
-  { path: '404', component: NotFoundComponent },
+  { path: '404', component: NotFoundPageComponent },
   { path: '**', redirectTo: '/404', pathMatch: 'full' },
 ];
 
