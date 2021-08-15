@@ -2,15 +2,17 @@
 <section *ngIf="allImg; else notFound">
   <mat-grid-list cols="{{ columns }}" rowHeight="2:1">
     <mat-grid-tile *ngFor="let img of allImg">
-      <mat-card>
-        <img
-          mat-card-image
-          src="{{ img.thumbnailUrl }}"
-          alt="Photo of get from https://jsonplaceholder.typicode.com/albums/{{
-            id
-          }}/photos"
-        />
-      </mat-card>
+      <app-dialog-image [imgURL]="img.url">
+        <mat-card>
+          <img
+            mat-card-image
+            src="{{ img.thumbnailUrl }}"
+            alt="Photo of get from https://jsonplaceholder.typicode.com/albums/{{
+              id
+            }}/photos"
+          />
+        </mat-card>
+      </app-dialog-image>
       <mat-card-actions>
         <app-dialog-delete></app-dialog-delete>
       </mat-card-actions>

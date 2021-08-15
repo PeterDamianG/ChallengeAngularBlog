@@ -13,6 +13,10 @@ import {
   DialogDelete,
   DialogContentDelete,
 } from './page/album-gallery/dialog-delete/dialog-delete.component';
+import {
+  DialogImage,
+  DialogContentImage,
+} from './page/album-gallery/dialog-image/dialog-image.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +25,8 @@ import {
     AlbumsGalleryComponent,
     DialogDelete,
     DialogContentDelete,
+    DialogImage,
+    DialogContentImage,
   ],
   imports: [
     AlbumRoutingModule,

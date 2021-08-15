@@ -21,7 +21,7 @@ export class DialogDelete {
 }
 
 @Component({
-  selector: 'app-dialog-content',
+  selector: 'app-dialog-content-delete',
   templateUrl: 'dialog-content-delete.component.html',
 })
 export class DialogContentDelete {}
