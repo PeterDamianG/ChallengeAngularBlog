@@ -7,9 +7,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { UsersComponent } from './page/users.component';
 import { UsersDetailsComponent } from './page/user-details/users-details.component';
+import { UsersPostsComponent } from './page/user-posts/users-posts.component';
 
 @NgModule({
-  declarations: [UsersComponent, UsersDetailsComponent],
+  declarations: [UsersComponent, UsersDetailsComponent, UsersPostsComponent],
   imports: [
     UserRoutingModule,
     SharedModule,

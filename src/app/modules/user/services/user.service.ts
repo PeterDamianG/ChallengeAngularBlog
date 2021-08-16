@@ -5,6 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { User } from '../data/user.model';
 import { UserList } from '../data/userList.model';
 import { UserDetails } from '../data/userDetail.model';
+import { UserPosts } from '../data/userPosts.model';
 import { MOCKUSER } from '../data/mockUser';
 
 @Injectable({
@@ -59,6 +60,16 @@ export class UserService {
     return this.http.get<User>(url).pipe(
       tap((_) => console.log(`fetched user by id=${id}`)),
       catchError(this.handleError<User>(`getUserByID id=${id}`)),
+    );
+  }
+
+  // Method for user-posts.components.ts in HTTP
+  getAllUserPostsHTTP(id: number): Observable<UserPosts[]> {
+    const url = `${this.USERSURL}/${id}/posts`;
+    return this.http.get<any>(url).pipe(
+      tap((_) => console.log('fetched users')),
+      catchError(this.handleError<any[]>('getAllUserHTTP', [])),
+      map((data) => data.map((d: any) => ({ id: d.id, title: d.title }))),
     );
   }
 
