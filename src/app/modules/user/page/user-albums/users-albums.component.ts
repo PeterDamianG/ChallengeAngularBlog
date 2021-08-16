@@ -3,12 +3,12 @@ import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
 @Component({
-  selector: 'app-users-posts',
-  templateUrl: './users-posts.component.html',
+  selector: 'app-users-albums',
+  templateUrl: './users-albums.component.html',
 })
-export class UsersPostsComponent implements OnInit {
+export class UsersAlbumsComponent implements OnInit {
   id: string = this.route.snapshot.params['id'];
-  allUserPost: any = [];
+  allUserAlbums: any = [];
   columns: string[] = ['id', 'title'];
 
   constructor(
@@ -16,12 +16,12 @@ export class UsersPostsComponent implements OnInit {
     private userService: UserService,
   ) {}
 
-  getUserPosts(): void {
+  getUserAlbums(): void {
     this.userService
-      .getAllUserPostsHTTP(Number(this.id))
-      .subscribe((posts) => (this.allUserPost = posts));
+      .getAllUserAlbumsHTTP(Number(this.id))
+      .subscribe((albums: any) => (this.allUserAlbums = albums));
   }
   ngOnInit(): void {
-    this.getUserPosts();
+    this.getUserAlbums();
   }
 }

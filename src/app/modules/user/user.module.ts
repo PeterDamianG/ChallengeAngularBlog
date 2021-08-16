@@ -8,9 +8,17 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { UsersComponent } from './page/users.component';
 import { UsersDetailsComponent } from './page/user-details/users-details.component';
 import { UsersPostsComponent } from './page/user-posts/users-posts.component';
+import { UsersAlbumsComponent } from './page/user-albums/users-albums.component';
+import { UsersTodosComponent } from './page/user-todos/users-todos.component';
 
 @NgModule({
-  declarations: [UsersComponent, UsersDetailsComponent, UsersPostsComponent],
+  declarations: [
+    UsersComponent,
+    UsersDetailsComponent,
+    UsersPostsComponent,
+    UsersAlbumsComponent,
+    UsersTodosComponent,
+  ],
   imports: [
     UserRoutingModule,
     SharedModule,

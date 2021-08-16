@@ -6,6 +6,8 @@ import { User } from '../data/user.model';
 import { UserList } from '../data/userList.model';
 import { UserDetails } from '../data/userDetail.model';
 import { UserPosts } from '../data/userPosts.model';
+import { UserAlbums } from '../data/userAlbums.model';
+import { UserTodos } from '../data/userTodos.model';
 import { MOCKUSER } from '../data/mockUser';
 
 @Injectable({
@@ -67,9 +69,35 @@ export class UserService {
   getAllUserPostsHTTP(id: number): Observable<UserPosts[]> {
     const url = `${this.USERSURL}/${id}/posts`;
     return this.http.get<any>(url).pipe(
-      tap((_) => console.log('fetched users')),
-      catchError(this.handleError<any[]>('getAllUserHTTP', [])),
+      tap((_) => console.log(`fetched user id=${id} all posts`)),
+      catchError(this.handleError<any[]>('getAllUserPostsHTTP', [])),
       map((data) => data.map((d: any) => ({ id: d.id, title: d.title }))),
+    );
+  }
+
+  // Method for user-albums.components.ts in HTTP
+  getAllUserAlbumsHTTP(id: number): Observable<UserAlbums[]> {
+    const url = `${this.USERSURL}/${id}/albums`;
+    return this.http.get<any>(url).pipe(
+      tap((_) => console.log(`fetched user id=${id} all albums`)),
+      catchError(this.handleError<any[]>('getAllUserAlbumsHTTP', [])),
+      map((data) => data.map((d: any) => ({ id: d.id, title: d.title }))),
+    );
+  }
+
+  // Method for user-todos.components.ts in HTTP
+  getAllUserTodosHTTP(id: number): Observable<UserTodos[]> {
+    const url = `${this.USERSURL}/${id}/todos`;
+    return this.http.get<any>(url).pipe(
+      tap((_) => console.log(`fetched user id=${id} all to do's`)),
+      catchError(this.handleError<any[]>('getAllUserTodosHTTP', [])),
+      map((data) =>
+        data.map((d: any) => ({
+          id: d.id,
+          title: d.title,
+          completed: d.completed,
+        })),
+      ),
     );
   }
 
