@@ -1,8 +1,8 @@
 <ng-template *ngIf="!isLoading; else loading"></ng-template>
 <section *ngIf="album; else notFound">
   <mat-card>
-    <mat-card-title>Details about user ID: {{ album.id }}</mat-card-title>
-    <mat-grid-list cols="2" rowHeight="14vh">
+    <mat-card-title>Details about Album ID: {{ album.id }}</mat-card-title>
+    <mat-grid-list cols="2" rowHeight="18vh">
       <mat-grid-tile class="text-bold">ID:</mat-grid-tile>
       <mat-grid-tile>{{ album.id }}</mat-grid-tile>
       <mat-grid-tile class="text-bold">User ID:</mat-grid-tile>

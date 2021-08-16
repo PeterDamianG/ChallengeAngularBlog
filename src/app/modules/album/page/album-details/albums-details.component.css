@@ -10,6 +10,7 @@ section {
 }
 .text-bold {
   font-weight: bold;
+  font-size: 2em;
 }
 .button-sections {
   width: 100%;
