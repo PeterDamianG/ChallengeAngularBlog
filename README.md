@@ -24,6 +24,12 @@ En el marco de el desafío <b>"Challenge JS"</b> sobre Typescript y Angular prop
 
 ## Instalar y Correr la Aplicación <a name="run"></a>
 
+Puedes ver el blog desplegado, en el siguiente link:
+
+[Angular Blog](https://peterdamiang.github.io/ChallengeAngularBlog/)
+
+O puedes clonarlo y verlo en local:
+
 1. En tu consola favorita coloca:
 
 `git clone https://github.com/PeterDamianG/ChallengeAlkemyAngular.git`
