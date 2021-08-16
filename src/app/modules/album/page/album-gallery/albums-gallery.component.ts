@@ -56,6 +56,14 @@ export class AlbumsGalleryComponent implements OnInit, DoCheck, OnDestroy {
       .subscribe((allImg: any) => (this.allImg = allImg));
   }
 
+  deleteOneImage = (id: number): void => {
+    console.log(`Image deleted by ID: ${id}`);
+    const imgToDelete = this.allImg.findIndex(
+      (element: any) => Number(element.id) === id,
+    );
+    this.allImg.splice(imgToDelete, 1);
+  };
+
   ngOnInit(): void {
     this.getAlbum();
   }

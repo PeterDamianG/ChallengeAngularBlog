@@ -14,7 +14,10 @@
         </mat-card>
       </app-dialog-image>
       <mat-card-actions>
-        <app-dialog-delete></app-dialog-delete>
+        <app-dialog-delete
+          [deleteIMG]="deleteOneImage"
+          [imgID]="img.id"
+        ></app-dialog-delete>
       </mat-card-actions>
     </mat-grid-tile>
   </mat-grid-list>

@@ -69,7 +69,11 @@ export class AlbumService {
       tap((_) => console.log(`fetched all img albums by id=${id}`)),
       catchError(this.handleError<Photo[]>(`getPostCommentsHTTP id=${id}`)),
       map((data) =>
-        data.map((d) => ({ url: d.url, thumbnailUrl: d.thumbnailUrl })),
+        data.map((d) => ({
+          id: d.id,
+          url: d.url,
+          thumbnailUrl: d.thumbnailUrl,
+        })),
       ),
     );
   }

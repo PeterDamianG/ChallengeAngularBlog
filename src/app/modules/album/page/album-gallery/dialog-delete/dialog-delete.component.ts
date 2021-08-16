@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 /**
@@ -9,13 +9,17 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: 'dialog-delete.component.html',
 })
 export class DialogDelete {
+  @Input() deleteIMG: (id: number) => void = () => null;
+  @Input() imgID: number = 0;
+
   constructor(public dialog: MatDialog) {}
 
   openDialog() {
     const dialogRef = this.dialog.open(DialogContentDelete);
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
+      if (result) this.deleteIMG(Number(this.imgID));
+      else console.log('Delete Image Cancel!');
     });
   }
 }
