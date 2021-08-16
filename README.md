@@ -1,27 +1,60 @@
-# BlogAngular
+<h2 align="center">
+  ChallengeJS - Angular Blog
+  <img src="https://www.alkemy.org/assets/images/logo-header.png" alt="Alkemy" width="100" />
+</h2>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.4.
+---
 
-## Development server
+# Tabla de Contenido - Index
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. [¿Qué es esto?](#what)
+2. [Instalar y Correr la Aplicación](#run)
+3. [Imagenes del Proyecto](#img)
+4. [Licencia](#license)
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### ¿Qué es esto? <a name="what"></a>
 
-## Build
+En el marco de el desafío <b>"Challenge JS"</b> sobre Typescript y Angular propuesto por <b>Alkemy</b> para la acceleración en Angular.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+[ChallengeJS - PDF](ChallengeIndividualAngular.pdf)
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Instalar y Correr la Aplicación <a name="run"></a>
 
-## Running end-to-end tests
+1. En tu consola favorita coloca:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+`git clone https://github.com/PeterDamianG/ChallengeAlkemyAngular.git`
 
-## Further help
+2. En el lugar donde lo hayas descargado, nos movemos al directorio:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+`cd ChallengeAlkemyAngular`
+
+3. El siguiente paso consiste en instalar todas las dependencias del desarrollo:
+
+`npm install`
+
+6. El último paso es levantar nuestro blog de ejemplo, en modo de desarrollo:
+
+`npm run start`
+
+La aplicación comenzara a funcionar en [LocalHost](http://localhost:4200/).
+
+---
+
+#### Imagenes del Proyecto <a name="img"></a>
+
+![Home](img/home.jpg)
+![Users List](img/users-list.jpg)
+![User Details](img/user-details.jpg)
+![Post List](img/posts-list-theme-dark.jpg)
+![Album Details](img/albums-details-theme-dark.jpg)
+![Gallery](img/gallery.jpg)
+
+---
+
+##### Licencia <a name="license"></a>
+
+[Licencia Github](LICENSE)
