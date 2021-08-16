@@ -10,6 +10,7 @@ import { MatPaginator } from '@angular/material/paginator';
 export class TableBaseComponent implements OnChanges {
   @Input() displayedColumns: string[] = [];
   @Input() dataSource: any = [];
+  @Input() useThisURL: string = '';
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   isLoading: boolean = true;
 
@@ -26,5 +27,11 @@ export class TableBaseComponent implements OnChanges {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  setURL(id: any): string | null {
+    if (this.useThisURL) return `${this.useThisURL}/${id}`;
+    if (id) return id;
+    else return null;
   }
 }
